@@ -10,8 +10,8 @@ import Spinner from 'components/common/Spinner/Spinner';
 import PhonebookView from 'views/PhonebookView/PhonebookView';
 import HomeView from 'views/HomeView';
 import NotFoundView from 'views/NotFoundView/NotFoundView';
-// import RegisterView from 'views/RegisterView';
-// import LoginView from 'views/LoginView';
+import RegisterView from 'views/RegisterView';
+import LoginView from 'views/LoginView';
 import { Switch, Route } from 'react-router-dom';
 import {Suspense } from 'react';
 
@@ -36,53 +36,30 @@ const App = () => {
       <Appbar/>
       <div className={theme === themes.light ? s.lightTheme : s.darkTheme}>
         <Container>
-{/* 
-        <Suspense fallback={<Spinner />}>
-          <Switch>
-            <Route path="/" exact>
-              <HomeView />
-            </Route>
+          {/* TODO: удалить Suspense или тут или в index.js */}
+          <Suspense fallback={<Spinner />}> 
+            <Switch>
+              <Route path="/" exact>
+                <HomeView />
+              </Route>
 
-            <Route exact path="/register">
-              <RegisterView/>
-            </Route>
+              <Route exact path="/register">
+                <RegisterView/>
+              </Route>
 
-            <Route path="/login">
-              <LoginView />
-            </Route>
+              <Route path="/login">
+                <LoginView />
+              </Route>
 
-            <Route path="/contacts">
-              <PhonebookView/>
-            </Route>
+              <Route path="/contacts">
+                <PhonebookView/>
+              </Route>
 
-            <Route>
-              <NotFoundView/>
-            </Route>
-          </Switch>
-        </Suspense> */} 
-
-
-        
-        <Suspense fallback={<Spinner />}>
-          <Switch>
-            <Route path="/" exact>
-              <HomeView />
-            </Route>
-
-           
-
-            
-
-            <Route path="/contacts">
-              <PhonebookView/>
-            </Route>
-
-            <Route>
-              <NotFoundView/>
-            </Route>
-          </Switch>
-        </Suspense> 
-
+              <Route>
+                <NotFoundView/>
+              </Route>
+            </Switch>
+          </Suspense> 
         </Container>
       </div>
       <ToastContainer autoClose={5000} />

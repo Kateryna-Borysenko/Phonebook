@@ -1,18 +1,27 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
-import * as api from 'services/api';
+import { createAsyncThunk } from "@reduxjs/toolkit";
+import * as api from "services/api";
 
-const API_ENDPOINT = 'contacts';
+const API_ENDPOINT = "contacts";
 
-const getContacts = createAsyncThunk('contacts/getContactsStatus', () =>
-  api.getData(API_ENDPOINT), 
+const getContacts = createAsyncThunk("contacts/getContactStatus", async () => {
+  const { data } = await api.getData(API_ENDPOINT);
+  return data;
+});
+
+const addContact = createAsyncThunk(
+  "contacts/createContactsStatus",
+  async (newContact) => {
+    const { data } = await api.saveItem(API_ENDPOINT, newContact);
+    return data;
+  }
 );
 
-const addContact = createAsyncThunk('contacts/addContactsStatus', newContact =>
-  api.saveItem(API_ENDPOINT, newContact),
+const deleteContact = createAsyncThunk(
+  "contacts/deleteContactsStatus",
+  async (id) => {
+    await api.deleteItem(API_ENDPOINT, id);
+    return id;
+  }
 );
 
-const deleteContact = createAsyncThunk('contacts/deleteContactsStatus', id =>
-  api.deleteItem(API_ENDPOINT, id),
-);
-
-export {getContacts, addContact, deleteContact };
+export { getContacts, addContact, deleteContact };

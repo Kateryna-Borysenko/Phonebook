@@ -1,7 +1,9 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify';
 
-axios.defaults.baseURL = 'https://lpj-tasker.herokuapp.com';
+axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
+// axios.defaults.baseURL = 'https://62010aa4fdf50900172497db.mockapi.io';
 
 const token = {
   set(token) {
@@ -17,13 +19,14 @@ const token = {
  * body: { name, email, password }
  * После успешной регистрации добавляем токен в HTTP-заголовок
  */
-const register = createAsyncThunk('auth/register', async credentials => {
+const register = createAsyncThunk('auth/register', async (credentials, thunkAPI) => {
   try {
     const { data } = await axios.post('/users/signup', credentials);
     token.set(data.token);
     return data;
   } catch (error) {
     // TODO: Добавить обработку ошибки error.message
+    return thunkAPI.rejectWithValue("Something wrong:(");
   }
 });
 
@@ -32,13 +35,15 @@ const register = createAsyncThunk('auth/register', async credentials => {
  * body: { email, password }
  * После успешного логина добавляем токен в HTTP-заголовок
  */
-const logIn = createAsyncThunk('auth/login', async credentials => {
+const logIn = createAsyncThunk('auth/login', async (credentials, thunkAPI) => {
   try {
     const { data } = await axios.post('/users/login', credentials);
     token.set(data.token);
     return data;
   } catch (error) {
     // TODO: Добавить обработку ошибки error.message
+    return thunkAPI.rejectWithValue('Something went wrong :(');
+    // toast('регистрация не прошла ')
   }
 });
 
@@ -92,3 +97,4 @@ const operations = {
   fetchCurrentUser,
 };
 export default operations;
+
