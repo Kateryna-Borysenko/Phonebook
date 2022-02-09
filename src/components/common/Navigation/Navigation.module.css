@@ -1,0 +1,21 @@
+.container{
+  border-bottom: 1px dashed #ffeef2;
+  padding-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.link {
+  display: inline-block;
+  text-decoration: none;
+  padding: 0 20px 10px;
+  font-weight: 500;
+  font-size: 20px;
+  font-weight: 600;
+  color: #ffeef2;
+}
+
+.activeLink {
+  color: #2f2b2b;
+  composes: link;
+}
