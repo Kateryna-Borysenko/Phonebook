@@ -1,30 +1,23 @@
 import { useState, useEffect } from 'react';
-// import { useSelector } from 'react-redux';
 import { ThemeContext, themes } from 'context/themeContext';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-// import { useTranslation } from 'react-i18next';
 import * as storage from 'services/localStorage';
-// import image from 'images/image.jpg';
 import s from './App.module.css';
-// import ContactForm from 'components/ContactForm/ContactForm';
-// import ContactList from 'components/ContactList/ContactList';
-// import Filter from 'components/Filter/Filter';
 import Container from 'components/common/Container/Container';
-
-
-// import { contactsSelectors } from 'redux/contacts';
 import Appbar from 'components/AppBar/AppBar';
+import Spinner from 'components/common/Spinner/Spinner';
 import PhonebookView from 'views/PhonebookView/PhonebookView';
 import HomeView from 'views/HomeView';
+import NotFoundView from 'views/NotFoundView/NotFoundView';
+// import RegisterView from 'views/RegisterView';
 // import LoginView from 'views/LoginView';
+import { Switch, Route } from 'react-router-dom';
+import {Suspense } from 'react';
 
 const THEME_STORAGE_KEY = 'theme';
 
 const App = () => {
-  // const filteredContacts = useSelector(contactsSelectors.getFilteredContacts);
-  // const contacts = useSelector(contactsSelectors.getContacts);
-
   const [theme, setTheme] = useState(
     () => storage.get(THEME_STORAGE_KEY) ?? themes.light,
   );
@@ -38,16 +31,57 @@ const App = () => {
     storage.save(THEME_STORAGE_KEY, theme);
   }, [theme]);
 
-  // const { t } = useTranslation();
-
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <Appbar/>
       <div className={theme === themes.light ? s.lightTheme : s.darkTheme}>
         <Container>
-          {/* <PhonebookView/> */}
-          {/* <HomeView/> */}
-          {/* <LoginView/> */}
+{/* 
+        <Suspense fallback={<Spinner />}>
+          <Switch>
+            <Route path="/" exact>
+              <HomeView />
+            </Route>
+
+            <Route exact path="/register">
+              <RegisterView/>
+            </Route>
+
+            <Route path="/login">
+              <LoginView />
+            </Route>
+
+            <Route path="/contacts">
+              <PhonebookView/>
+            </Route>
+
+            <Route>
+              <NotFoundView/>
+            </Route>
+          </Switch>
+        </Suspense> */} 
+
+
+        
+        <Suspense fallback={<Spinner />}>
+          <Switch>
+            <Route path="/" exact>
+              <HomeView />
+            </Route>
+
+           
+
+            
+
+            <Route path="/contacts">
+              <PhonebookView/>
+            </Route>
+
+            <Route>
+              <NotFoundView/>
+            </Route>
+          </Switch>
+        </Suspense> 
 
         </Container>
       </div>

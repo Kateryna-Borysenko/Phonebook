@@ -1,12 +1,18 @@
-import Navigation from 'components/common/Navigation/Navigation';
+import Navigation from 'components/Navigation/Navigation';
 import s from './Appbar.module.css';
 import LanguageSwitcher from 'components/common/LanguageSwitcher/LanguageSwitcher';
 import ThemeSwitcher from 'components/common/ThemeSwitcher/ThemeSwitcher';
+// import UserMenu from 'components/UserMenu';
+// import AuthNav from 'components/AuthNav';
 
-export default function Appbar() {
+const Appbar = () => {
+
+  // const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
   return (
     <header className={s.header}>
-      <Navigation />
+      <Navigation/>
+      {/* {isLoggedIn ? <UserMenu /> : <AuthNav />} */}
+
       <div className={s.headerBottom}>
         <div className={s.lanquagesWrapper}>
           <LanguageSwitcher />
@@ -16,3 +22,4 @@ export default function Appbar() {
     </header>
   );
 }
+export default Appbar;

@@ -1,8 +1,8 @@
 .container{
+  display: inline-block;
   border-bottom: 1px dashed #ffeef2;
   padding-bottom: 20px;
-  display: flex;
-  justify-content: space-between;
+  outline: solid red 1px;
 }
 
 .link {

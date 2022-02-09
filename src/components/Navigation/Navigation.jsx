@@ -4,26 +4,25 @@ import s from './Navigation.module.css';
 const Navigation = () => (
   <nav className={s.container}>
 
-    <div>
+   
       <NavLink exact to="/" className={s.link} activeClassName={s.activeLink}>
-        Home
+      Главная
       </NavLink>
-    </div>
+      <NavLink exact to="/contacts" className={s.link} activeClassName={s.activeLink}>
+      Контакты
+      </NavLink>
+ 
 
-    <div>
-      {/* <NavLink to="/contacts " className={s.link} activeClassName={s.activeLink}>
-      Contacts
-      </NavLink> */}
-      <NavLink to="/login " className={s.link} activeClassName={s.activeLink}>
+      {/* <NavLink to="/login " className={s.link} activeClassName={s.activeLink}>
         Sing In
-      </NavLink>  
-      <NavLink to="/register " className={s.link} activeClassName={s.activeLink}>
+      </NavLink>   */}
+      {/* <NavLink to="/register " className={s.link} activeClassName={s.activeLink}>
         Sing Up
-      </NavLink>
+      </NavLink> */}
       {/* <NavLink to="/logout " className={s.link} activeClassName={s.activeLink}>
         Sing Up
       </NavLink> */}
-    </div>
+    
 
   </nav>
 );
