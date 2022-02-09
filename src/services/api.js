@@ -25,3 +25,18 @@ const deleteItem = (endpoint, id, options = {}) =>
   fetchData(`${endpoint}/${id}`, { method: 'DELETE', ...options });
 
 export { getData, saveItem, deleteItem };
+
+// import axios from 'axios';
+// const BASE_URL = 'https://connections-api.herokuapp.com'
+
+// const getData = (endpoint) => {
+//   return axios.get(endpoint);
+// };
+
+// const saveItem = (endpoint, item = {}) => {
+//   return axios.post(endpoint, item);
+// };
+
+// const deleteItem = (endpoint, id) => axios.delete(`${endpoint}/${id}`);
+
+// export { getData, saveItem, deleteItem };

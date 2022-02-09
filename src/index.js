@@ -12,6 +12,7 @@ import './i18n';
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
+      {/* PersistGate сохранение в localStorage */}
       <PersistGate loading={null} persistor={persistor}>
       <BrowserRouter>
         <Suspense fallback={<Spinner />}>
