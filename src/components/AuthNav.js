@@ -5,14 +5,17 @@ const styles = {
   link: {
     display: 'inline-block',
     textDecoration: 'none',
-    padding: 12,
-    fontWeight: 700,
-    color: '#2A363B',
+    color: '#ffeef2',
+    fontSize: '20px', 
+    fontWeight: 600,
+    padding: '0 10px 10px'
   },
   activeLink: {
-    color: '#E84A5F',
+    color: '#2f2b2b',
   },
 };
+
+
 
 export default function AuthNav() {
   return (

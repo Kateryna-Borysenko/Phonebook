@@ -1,15 +1,13 @@
 .container{
   display: inline-block;
-  border-bottom: 1px dashed #ffeef2;
   padding-bottom: 20px;
-  outline: solid red 1px;
+  /* outline: solid red 1px; */
 }
 
 .link {
   display: inline-block;
   text-decoration: none;
-  padding: 0 20px 10px;
-  font-weight: 500;
+  padding: 0 10px 10px;
   font-size: 20px;
   font-weight: 600;
   color: #ffeef2;

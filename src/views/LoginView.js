@@ -1,22 +1,39 @@
-import { useState } from 'react';
+import { useState , useEffect} from 'react';
 import { useDispatch } from 'react-redux';
-import { authOperations } from '../redux/auth';
+import { authOperations, authSelectors  } from '../redux/auth';
+import { toast } from 'react-toastify';
 
 const styles = {
+  title:{
+    textAlign: 'center',
+  },
+  container: {
+    margin:" 0 auto",
+    backgroundColor: '#FFF'
+  },
   form: {
-    width: 320,
+   
+    width: 420,
+    outline: "2px solid pink"
   },
   label: {
     display: 'flex',
     flexDirection: 'column',
-    marginBottom: 15,
+    // marginBottom: 15,
   },
 };
-
-export default function LoginView() {
+const LoginView = () => {
   const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  // const error = useSelector(authSelectors.getError);
+  // const loading = useSelector(authSelectors.getLoading);
+
+  //   useEffect(() => {
+  //   if (!error) return;
+  //   toast.error(error);
+  // }, [error]);
 
   const handleChange = ({ target: { name, value } }) => {
     switch (name) {
@@ -35,10 +52,12 @@ export default function LoginView() {
     setEmail('');
     setPassword('');
   };
-
+  const isBtnDisabled = !email || !password;
+  // const isBtnDisabled = loading || !email || !password;
   return (
-    <div>
-      <h1>Страница логина</h1>
+    <div style={styles.container}>
+  
+      <h1 style={styles.title}>Страница логина</h1>
 
       <form onSubmit={handleSubmit} style={styles.form} autoComplete="off">
         <label style={styles.label}>
@@ -48,6 +67,8 @@ export default function LoginView() {
             name="email"
             value={email}
             onChange={handleChange}
+            placeholder="email@mail.com"
+            required
           />
         </label>
 
@@ -58,11 +79,15 @@ export default function LoginView() {
             name="password"
             value={password}
             onChange={handleChange}
+            placeholder="qwerty1234"
+            required
           />
         </label>
 
-        <button type="submit">Войти</button>
+        <button disabled={isBtnDisabled} type="submit">Войти</button>
       </form>
     </div>
   );
 }
+
+export default LoginView ;

@@ -4,8 +4,16 @@
   max-width: 1200px;
   margin: 0 auto;
 }
+.headerTop{
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 15px ;
+  /* outline:1px solid blue; */
+}
+
 .headerBottom{
   display: flex;
   justify-content: space-between;
   padding: 10px 15px 0;
+  border-top: 1px dashed #ffeef2;
 }

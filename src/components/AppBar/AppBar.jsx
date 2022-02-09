@@ -12,8 +12,10 @@ const Appbar = () => {
   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
   return (
     <header className={s.header}>
-      <Navigation/>
-      {isLoggedIn ? <UserMenu /> : <AuthNav />}
+      <div className={s.headerTop}>
+        <Navigation/>
+        {isLoggedIn ? <UserMenu /> : <AuthNav />}
+      </div>
 
       <div className={s.headerBottom}>
         <div className={s.lanquagesWrapper}>

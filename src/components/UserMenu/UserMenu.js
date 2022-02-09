@@ -1,14 +1,17 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { authSelectors, authOperations } from '../../redux/auth';
-import defaultAvatar from './default-avatar.png';
+import defaultAvatar from './default-avatar.jpg';
 
 const styles = {
   container: {
     display: 'flex',
     alignItems: 'center',
+    paddingBottom: 20
+  
   },
   avatar: {
-    marginRight: 4,
+    borderRadius: 50,
+    marginRight: 10,
   },
   name: {
     fontWeight: 700,
