@@ -4,11 +4,11 @@ import { nanoid } from '@reduxjs/toolkit';
 import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
 import { ThemeContext, themes } from 'context/themeContext';
-import { contactsOperations } from 'redux/contacts';
+import { contactsOperations, contactsSelectors } from 'redux/contacts';
 import s from './ContactForm.module.css';
 
 const ContactForm = () => {
-  const contacts = useSelector(state => state.contacts.data.items);
+  const contacts = useSelector(contactsSelectors.getContacts);
   const dispatch = useDispatch();
 
   const [name, setName] = useState('');

@@ -9,7 +9,7 @@ import { useSelector} from 'react-redux';
 
 const Appbar = () => {
 
-  const isLoggedIn = useSelector(authSelectors.getIsLoggedIn); //отображение интерфейса по состоянию пользователя, залогинен он или нет
+  const isLoggedIn = useSelector(authSelectors.getIsLoggedIn); 
   return (
     <header className={s.header}>
       <div className={s.headerTop}>

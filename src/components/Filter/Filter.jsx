@@ -1,12 +1,12 @@
 import { useEffect, useRef, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux'; 
-import { contactsActions } from 'redux/contacts';
+import { contactsActions, contactsSelectors } from 'redux/contacts';
 import { ThemeContext, themes } from 'context/themeContext';
 import { useTranslation } from 'react-i18next';
 import s from './Filter.module.css';
 
 const Filter = () => {
-  const filter = useSelector(state => state.contacts.filter);
+  const filter = useSelector(contactsSelectors.getFilter);
   const dispatch = useDispatch();
 
   const { theme } = useContext(ThemeContext);
