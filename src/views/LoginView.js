@@ -4,23 +4,49 @@ import { authOperations, authSelectors  } from '../redux/auth';
 import { toast } from 'react-toastify';
 
 const styles = {
-  title:{
-    textAlign: 'center',
+  wrap:{
+    margin: '0 auto'
   },
-  container: {
-    margin:" 0 auto",
-    backgroundColor: '#FFF'
+  title:{
+    fontFamily: 'inherit'
   },
   form: {
-   
-    width: 420,
-    outline: "2px solid pink"
+    width: 400,
   },
   label: {
     display: 'flex',
     flexDirection: 'column',
-    // marginBottom: 15,
+    marginBottom: 20,
   },
+  textField :{
+    marginTop: '10px',
+    width: '100%',
+    padding: '10px',
+    boxSizing: 'border-box',
+    fontFamily: 'inherit',
+    fontSize: '20px',
+    fontWeight: 250,
+    backgroundColor: 'inherit',
+    borderRadius: '5px',
+    border: '2px solid #007188',
+    cursor: 'pointer',
+    boxShadow: '0 1px 3px rgb(0 0 0 / 12%), 0 1px 1px rgb(0 0 0 / 14%)'
+  },
+  button: {
+    marginTop: '20px',
+    width: '200px',
+    height: '50px',
+    fontSize: '16px',
+    lineHeight: '26px',
+    color: '#fff',
+    backgroundColor: '#007188',
+    borderRadius: '5px',
+    border: 'inherit',
+    boxSizing: 'border-box',
+    cursor: 'pointer',
+    boxShadow: '0 1px 3px rgb(0 0 0 / 12%), 0 1px 1px rgb(0 0 0 / 14%)'
+  },
+  
 };
 const LoginView = () => {
   const dispatch = useDispatch();
@@ -52,10 +78,9 @@ const LoginView = () => {
     setEmail('');
     setPassword('');
   };
-  const isBtnDisabled = !email || !password;
-  // const isBtnDisabled = loading || !email || !password;
+
   return (
-    <div style={styles.container}>
+    <div style={styles.wrap}>
   
       <h1 style={styles.title}>Страница логина</h1>
 
@@ -63,6 +88,7 @@ const LoginView = () => {
         <label style={styles.label}>
           Почта
           <input
+          style={styles.textField}
             type="email"
             name="email"
             value={email}
@@ -75,6 +101,7 @@ const LoginView = () => {
         <label style={styles.label}>
           Пароль
           <input
+            style={styles.textField}
             type="password"
             name="password"
             value={password}
@@ -84,7 +111,7 @@ const LoginView = () => {
           />
         </label>
 
-        <button disabled={isBtnDisabled} type="submit">Войти</button>
+        <button style={styles.button}  type="submit">Войти</button>
       </form>
     </div>
   );
