@@ -45,22 +45,7 @@ const styles = {
     boxSizing: 'border-box',
     cursor: 'pointer',
     boxShadow: '0 1px 3px rgb(0 0 0 / 12%), 0 1px 1px rgb(0 0 0 / 14%)'
-  },
-  disabled:{
-    marginTop: '20px',
-    width: '200px',
-    height: '50px',
-    fontSize: '16px',
-    lineHeight: '26px',
-    color: '#fff',
-    backgroundColor: '#c1c1c1',
-    borderRadius: '5px',
-    border: 'inherit',
-    boxSizing: 'border-box',
-    boxShadow: '0 1px 3px rgb(0 0 0 / 12%), 0 1px 1px rgb(0 0 0 / 14%)',
-    cursor:'not-allowed', 
-  }
-  
+  },  
 };
 const LoginView = () => {
   const dispatch = useDispatch();
@@ -85,7 +70,7 @@ const LoginView = () => {
     setEmail('');
     setPassword('');
   };
-  const isBtnDisabled = !email || !password;
+
   return (
     <div style={styles.wrap}>
   
@@ -118,7 +103,7 @@ const LoginView = () => {
           />
         </label>
 
-        <button style={isBtnDisabled ? styles.disabled : styles.button}  disabled={isBtnDisabled} type="submit">{t('logInForm.button')}</button>
+        <button style={styles.button}  type="submit">{t('logInForm.button')}</button>
       </form>
     </div>
   );

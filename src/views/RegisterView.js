@@ -35,7 +35,7 @@ const styles = {
   },
   button: {
     marginTop: '20px',
-    padding: '0 20px',
+    width: '200px',
     height: '50px',
     fontSize: '16px',
     lineHeight: '26px',
@@ -47,20 +47,6 @@ const styles = {
     cursor: 'pointer',
     boxShadow: '0 1px 3px rgb(0 0 0 / 12%), 0 1px 1px rgb(0 0 0 / 14%)'
   },
-  disabled:{
-    marginTop: '20px',
-    width: '200px',
-    height: '50px',
-    fontSize: '16px',
-    lineHeight: '26px',
-    color: '#fff',
-    backgroundColor: '#c1c1c1',
-    borderRadius: '5px',
-    border: 'inherit',
-    boxSizing: 'border-box',
-    boxShadow: '0 1px 3px rgb(0 0 0 / 12%), 0 1px 1px rgb(0 0 0 / 14%)',
-    cursor:'not-allowed', 
-  }
 };
 
 export default function RegisterView() {
@@ -91,7 +77,7 @@ export default function RegisterView() {
     setEmail('');
     setPassword('');
   };
-  const isBtnDisabled = !name || !email || !password;
+  // const isBtnDisabled = !name || !email || !password;
   return (
     <div style={styles.wrap}>
       <h1 style={styles.title}>{t('logUpForm.title')}</h1>
@@ -136,7 +122,7 @@ export default function RegisterView() {
           />
         </label>
 
-        <button  style={isBtnDisabled ? styles.disabled : styles.button} type="submit">{t('logUpForm.button')}</button>
+        <button  style={styles.button} type="submit">{t('logUpForm.button')}</button>
       </form>
     </div>
   );
