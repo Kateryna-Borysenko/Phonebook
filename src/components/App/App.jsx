@@ -14,10 +14,14 @@ import RegisterView from 'views/RegisterView';
 import LoginView from 'views/LoginView';
 import { Switch, Route } from 'react-router-dom';
 import {Suspense } from 'react';
+import { useDispatch } from 'react-redux';
+import { authOperations } from 'redux/auth';
 
 const THEME_STORAGE_KEY = 'theme';
 
 const App = () => {
+  const dispatch = useDispatch();
+
   const [theme, setTheme] = useState(
     () => storage.get(THEME_STORAGE_KEY) ?? themes.light,
   );
@@ -30,6 +34,10 @@ const App = () => {
   useEffect(() => {
     storage.save(THEME_STORAGE_KEY, theme);
   }, [theme]);
+
+  useEffect(() => {
+    dispatch(authOperations.fetchCurrentUser());
+  }, [dispatch]);
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>

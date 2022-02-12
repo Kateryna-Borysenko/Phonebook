@@ -12,7 +12,7 @@ import './i18n';
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      {/* PersistGate сохранение в localStorage */}
+      {/* PersistGate сохранение в localStorage - не зарендерит ничего что внутри него пока не считает все данные с localStorage*/}
       <PersistGate loading={null} persistor={persistor}>
       <BrowserRouter>
         <Suspense fallback={<Spinner />}>

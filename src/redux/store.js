@@ -28,8 +28,9 @@ const authPersistConfig = {
 
 const store = configureStore({
   reducer: {
- 
-    contacts: persistReducer(persistCitiesConfig, contactsReducer),
+  
+    contacts: contactsReducer,
+    // contacts: persistReducer(persistCitiesConfig, contactsReducer),
     auth: persistReducer(authPersistConfig, authReducer),
  
   },

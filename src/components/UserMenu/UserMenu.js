@@ -29,8 +29,8 @@ const styles = {
 };
 
 export default function UserMenu() {
-  const dispatch = useDispatch();
-  const name = useSelector(authSelectors.getUsername);
+  const dispatch = useDispatch(); //нужен чтобы разлогинится
+  const name = useSelector(authSelectors.getUsername); //вывод имени пользователя
   const avatar = defaultAvatar;
 
   return (

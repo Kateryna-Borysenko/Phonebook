@@ -94,7 +94,7 @@ export default function RegisterView() {
 
       <form onSubmit={handleSubmit} style={styles.form} autoComplete="off">
         <label style={styles.label}>
-          Имя
+          Имя*
           <input 
           style={styles.textField}
           type="text" 
@@ -107,7 +107,7 @@ export default function RegisterView() {
         </label>
 
         <label style={styles.label}>
-          Почта
+          Почта*
           <input
             style={styles.textField}
             type="email"
@@ -120,7 +120,7 @@ export default function RegisterView() {
         </label>
 
         <label style={styles.label}>
-          Пароль
+          Пароль*
           <input
             style={styles.textField}
             type="password"
