@@ -1,7 +1,7 @@
-import { useState , useEffect} from 'react';
+import { useState} from 'react';
 import { useDispatch } from 'react-redux';
-import { authOperations, authSelectors  } from '../redux/auth';
-import { toast } from 'react-toastify';
+import { authOperations} from '../redux/auth';
+import { useTranslation } from 'react-i18next';
 
 const styles = {
   wrap:{
@@ -66,14 +66,7 @@ const LoginView = () => {
   const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
-  // const error = useSelector(authSelectors.getError);
-  // const loading = useSelector(authSelectors.getLoading);
-
-  //   useEffect(() => {
-  //   if (!error) return;
-  //   toast.error(error);
-  // }, [error]);
+  const { t } = useTranslation();
 
   const handleChange = ({ target: { name, value } }) => {
     switch (name) {
@@ -96,36 +89,36 @@ const LoginView = () => {
   return (
     <div style={styles.wrap}>
   
-      <h1 style={styles.title}>Страница логина</h1>
+      <h1 style={styles.title}>{t('logInForm.title')}</h1>
 
       <form onSubmit={handleSubmit} style={styles.form} autoComplete="off">
         <label style={styles.label}>
-          Почта*
+        {t('logInForm.emaileTitle')}
           <input
           style={styles.textField}
             type="email"
             name="email"
             value={email}
             onChange={handleChange}
-            placeholder="email@mail.com"
+            placeholder={t('logInForm.emailePlaceholder')}
             required
           />
         </label>
 
         <label style={styles.label}>
-          Пароль*
+        {t('logInForm.passwordTitle')}
           <input
             style={styles.textField}
             type="password"
             name="password"
             value={password}
             onChange={handleChange}
-            placeholder="qwerty1234"
+            placeholder={t('logInForm.passwordPlaceholder')}
             required
           />
         </label>
 
-        <button style={isBtnDisabled ? styles.disabled : styles.button}  disabled={isBtnDisabled} type="submit">Войти</button>
+        <button style={isBtnDisabled ? styles.disabled : styles.button}  disabled={isBtnDisabled} type="submit">{t('logInForm.button')}</button>
       </form>
     </div>
   );

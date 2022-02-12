@@ -1,6 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import {HiOutlineLogin} from 'react-icons/hi';
+import { useTranslation } from 'react-i18next';
+
 
 const styles = {
   wrap:{
@@ -25,7 +27,9 @@ const styles = {
 
 
 
-export default function AuthNav() {
+const AuthNav = () => {
+  const { t } = useTranslation();
+
   return (
     <div style={styles.wrap}>
       <NavLink
@@ -34,7 +38,7 @@ export default function AuthNav() {
         style={styles.link}
         activeStyle={styles.activeLink}
       >
-        Регистрация
+        {t('header.registerLink')}
       </NavLink>
       <NavLink
         to="/login"
@@ -47,3 +51,5 @@ export default function AuthNav() {
     </div>
   );
 }
+
+export default AuthNav;

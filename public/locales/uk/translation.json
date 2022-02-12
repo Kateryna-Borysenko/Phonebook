@@ -1,4 +1,30 @@
 {
+  "header": {
+    "homeLink": "Головна",
+    "contactsLink": "Контакти",
+    "registerLink": "Реєстрація"
+  },
+  "homePage": {
+    "message": "Вітальна сторінка нашого сервісу"
+  },
+  "logInForm": {
+    "title": "Сторіка логіна",
+    "emaileTitle": "Пошта*",
+    "emailePlaceholder": "приклад: email@email.com",
+    "passwordTitle": "Пароль*",
+    "passwordPlaceholder": "приклад: qwe1234",
+    "button": "Увійти"
+  },
+  "logUpForm": {
+    "name": "Ім'я*",
+    "placeholderName": "приклад: Катерина",
+    "title": "Сторіка логіна",
+    "emaileTitle": "Пошта*",
+    "emailePlaceholder": "приклад: email@email.com",
+    "passwordTitle": "Пароль*",
+    "passwordPlaceholder": "приклад: qwe1234",
+    "button": "Зареєструватись"
+  },
   "app": {
     "title": "Телефонна книга",
     "subtitle": "Контакти:",

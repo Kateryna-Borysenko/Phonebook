@@ -1,4 +1,30 @@
 {
+  "header": {
+    "homeLink": "Home",
+    "contactsLink": "Contacts",
+    "registerLink": "Log Up"
+  },
+  "homePage": {
+    "message": "Welcome page of our service"
+  },
+  "logInForm": {
+    "title": "Log In Page",
+    "emaileTitle": "Email*",
+    "emailePlaceholder": "example: email@email.com",
+    "passwordTitle": "Password*",
+    "passwordPlaceholder": "example: qwe1234",
+    "button": "Log In"
+  },
+  "logUpForm": {
+    "name": "Name*",
+    "placeholderName": "example: Kateryna",
+    "title": "Log Up Page",
+    "emaileTitle": "Email*",
+    "emailePlaceholder": "example: email@email.com",
+    "passwordTitle": "Password*",
+    "passwordPlaceholder": "example: qwe1234",
+    "button": "Log Up"
+  },
   "app": {
     "title": "Phonebook",
     "subtitle": "Contacts:",

@@ -16,7 +16,6 @@ import PublicRoute from 'components/PublicRoute';
 const HomeView = lazy(() => import('../../views/HomeView'));
 const RegisterView = lazy(() => import('../../views/RegisterView'));
 const LoginView = lazy(() => import('../../views/LoginView'));
-const UploadView = lazy(() => import('../../views/UploadView'));
 const PhonebookView = lazy(() => import('../../views/PhonebookView/PhonebookView'));
 const NotFoundView = lazy(() => import('../../views/NotFoundView/NotFoundView'));
 
@@ -68,11 +67,7 @@ const App = () => {
                   <PrivateRoute path="/contacts" redirectTo="/login">
                     <PhonebookView/>
                   </PrivateRoute>
-    
-                  <PrivateRoute path="/upload" redirectTo="/login">
-                    <UploadView />
-                  </PrivateRoute>
-    
+                     
                   <PublicRoute>
                     <NotFoundView/>
                   </PublicRoute>

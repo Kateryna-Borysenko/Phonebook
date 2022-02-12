@@ -1,4 +1,30 @@
 {
+  "homePage": {
+    "message": "Приветственная страница нашего сервиса"
+  },
+  "header": {
+    "homeLink": "Главная",
+    "contactsLink": "Контакты",
+    "registerLink": "Регистрация"
+  },
+  "logInForm": {
+    "title": "Страница логина",
+    "emaileTitle": "Почта*",
+    "emailePlaceholder": "пример: email@email.com",
+    "passwordTitle": "Пароль*",
+    "passwordPlaceholder": "пример qwe1234",
+    "button": "Войти"
+  },
+  "logUpForm": {
+    "name": "Имя*",
+    "placeholderName": "пример: Екатерина",
+    "title": "Страница регистрации",
+    "emaileTitle": "Почта*",
+    "emailePlaceholder": "пример: email@email.com",
+    "passwordTitle": "Пароль*",
+    "passwordPlaceholder": "пример qwe1234",
+    "button": "Зарегистрироваться"
+  },
   "app": {
     "title": "Телефонная книга",
     "subtitle": "Контакты:",

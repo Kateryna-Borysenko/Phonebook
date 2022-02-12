@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { authOperations } from '../redux/auth';
+import { useTranslation } from 'react-i18next';
+
 
 const styles = {
   wrap:{
@@ -67,6 +69,8 @@ export default function RegisterView() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const { t } = useTranslation();
+
   const handleChange = ({ target: { name, value } }) => {
     switch (name) {
       case 'name':
@@ -90,49 +94,49 @@ export default function RegisterView() {
   const isBtnDisabled = !name || !email || !password;
   return (
     <div style={styles.wrap}>
-      <h1 style={styles.title}>Страница регистрации</h1>
+      <h1 style={styles.title}>{t('logUpForm.title')}</h1>
 
       <form onSubmit={handleSubmit} style={styles.form} autoComplete="off">
         <label style={styles.label}>
-          Имя*
+        {t('logUpForm.name')}
           <input 
           style={styles.textField}
           type="text" 
           name="name" 
           value={name} 
           onChange={handleChange} 
-          placeholder="John Doe"
+          placeholder={t('logUpForm.placeholderName')}
           required
           />
         </label>
 
         <label style={styles.label}>
-          Почта*
+        {t('logUpForm.emaileTitle')}
           <input
             style={styles.textField}
             type="email"
             name="email"
             value={email}
             onChange={handleChange}
-            placeholder="email@mail.com"
+            placeholder={t('logUpForm.emailePlaceholder')}
             required
           />
         </label>
 
         <label style={styles.label}>
-          Пароль*
+        {t('logUpForm.passwordTitle')}
           <input
             style={styles.textField}
             type="password"
             name="password"
             value={password}
             onChange={handleChange}
-            placeholder="qwerty1234"
+            placeholder={t('logUpForm.passwordPlaceholder')}
             required
           />
         </label>
 
-        <button  style={isBtnDisabled ? styles.disabled : styles.button} type="submit">Зарегистрироваться</button>
+        <button  style={isBtnDisabled ? styles.disabled : styles.button} type="submit">{t('logUpForm.button')}</button>
       </form>
     </div>
   );
