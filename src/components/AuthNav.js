@@ -1,7 +1,12 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import {HiOutlineLogin} from 'react-icons/hi';
 
 const styles = {
+  wrap:{
+    display: 'flex',
+    alignItems: 'center',
+  },
   link: {
     display: 'inline-block',
     textDecoration: 'none',
@@ -13,13 +18,16 @@ const styles = {
   activeLink: {
     color: '#2f2b2b',
   },
+  logInIcon:{
+    fontSize: 25,
+  }
 };
 
 
 
 export default function AuthNav() {
   return (
-    <div>
+    <div style={styles.wrap}>
       <NavLink
         to="/register"
         exact
@@ -34,7 +42,7 @@ export default function AuthNav() {
         style={styles.link}
         activeStyle={styles.activeLink}
       >
-        Логин
+        <HiOutlineLogin style={styles.logInIcon}/>
       </NavLink>
     </div>
   );
