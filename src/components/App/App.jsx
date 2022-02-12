@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect,lazy } from 'react';
 import { ThemeContext, themes } from 'context/themeContext';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -7,15 +7,21 @@ import s from './App.module.css';
 import Container from 'components/common/Container/Container';
 import Appbar from 'components/AppBar/AppBar';
 import Spinner from 'components/common/Spinner/Spinner';
-import PhonebookView from 'views/PhonebookView/PhonebookView';
-import HomeView from 'views/HomeView';
-import NotFoundView from 'views/NotFoundView/NotFoundView';
-import RegisterView from 'views/RegisterView';
-import LoginView from 'views/LoginView';
+// import PhonebookView from 'views/PhonebookView/PhonebookView';
+// import HomeView from 'views/HomeView';
+// import NotFoundView from 'views/NotFoundView/NotFoundView';
+// import RegisterView from 'views/RegisterView';
+// import LoginView from 'views/LoginView';
 import { Switch, Route } from 'react-router-dom';
 import {Suspense } from 'react';
 import { useDispatch } from 'react-redux';
 import { authOperations } from 'redux/auth';
+
+const HomeView = lazy(() => import('../../views/HomeView'));
+const RegisterView = lazy(() => import('../../views/RegisterView'));
+const LoginView = lazy(() => import('../../views/LoginView'));
+const PhonebookView = lazy(() => import('../../views/PhonebookView/PhonebookView'));
+const NotFoundView = lazy(() => import('../../views/NotFoundView/NotFoundView'));
 
 const THEME_STORAGE_KEY = 'theme';
 
