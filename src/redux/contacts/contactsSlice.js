@@ -46,7 +46,7 @@ const initialState = {
         })
         .addCase(addContact.fulfilled, (state, { payload }) => {
           state.data.loading = false;
-          state.data.items = [...state.data.items, payload]
+          state.data.items = [ ...state.data.items, payload]
         })
         .addCase(addContact.rejected, (state, { payload }) => {
           state.data.loading = false;
