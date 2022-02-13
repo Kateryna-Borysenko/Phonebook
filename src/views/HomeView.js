@@ -3,6 +3,9 @@ import { useTranslation } from 'react-i18next';
 
 
 const styles = {
+  container: {
+    margin: '0 auto'
+  },
   title: {
     fontWeight: 500,
     fontSize: 48,
