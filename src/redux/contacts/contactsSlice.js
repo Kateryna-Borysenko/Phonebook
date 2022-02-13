@@ -46,7 +46,7 @@ const initialState = {
         })
         .addCase(addContact.fulfilled, (state, { payload }) => {
           state.data.loading = false;
-          state.data.items.push(payload); 
+          state.data.items = [...state.data.items, payload]
         })
         .addCase(addContact.rejected, (state, { payload }) => {
           state.data.loading = false;
@@ -61,8 +61,7 @@ const initialState = {
         })
         .addCase(deleteContact.fulfilled, (state, { payload }) => {
           state.data.loading = false;
-          const index = state.data.items.findIndex(city => city.id === payload.id);
-          state.data.items.splice(index, 1); 
+          state.data.items = state.data.items.filter(contact => contact.id !== payload)
         })
         .addCase(deleteContact.rejected, (state, { payload }) => {
           state.data.loading = false;
