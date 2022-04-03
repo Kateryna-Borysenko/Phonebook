@@ -8,8 +8,6 @@ import { authSelectors } from '../redux/auth';
  * - restricted - ограниченый 
  */
 
-
-
 export default function PublicRoute({
   children,
   restricted = false,
